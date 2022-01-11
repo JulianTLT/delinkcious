@@ -2,6 +2,7 @@ FROM golang AS builder
 ADD ./main.go main.go
 ADD ./service service
 # Fetch dependencies
+RUN go mod init
 RUN go get -d -v
 
 # Build image as a truly static Go binary
